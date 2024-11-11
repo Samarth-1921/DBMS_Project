@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Table</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSV Data Table</h1>
+    <table id="dataTable">
+        <!-- Table will be populated by JavaScript -->
+    </table>
+
+    <script>
+        async function loadCSV() {
+            try {
+                // Fetch the CSV file
+                const response = await fetch('explore.csv');
+                const text = await response.text();
+
+                // Split the CSV file into rows
+                const rows = text.split('\n');
+
+                // The first row contains headers, split by commas
+                const headers = rows[0].split(',');
+
+                // Get the table element
+                const table = document.getElementById('dataTable');
+
+                // Create the table header
+                let headerRow = table.insertRow();
+                headers.forEach(header => {
+                    let th = document.createElement('th');
+                    th.textContent = header.trim();  // Trim to remove extra spaces
+                    headerRow.appendChild(th);
+                });
+
+                // Loop through the rest of the rows (skip the header)
+                rows.slice(1).forEach(row => {
+                    const columns = row.split(',');
+
+                    let tableRow = table.insertRow();
+                    columns.forEach(column => {
+                        let td = document.createElement('td');
+                        td.textContent = column.trim();  // Trim to remove extra spaces
+                        tableRow.appendChild(td);
+                    });
+                });
+            } catch (error) {
+                console.error('Error loading CSV file:', error);
+            }
+        }
+
+        // Load the CSV when the page is ready
+        window.onload = loadCSV;
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link href ="homepagebackground.css" rel="stylesheet" type "text/css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Your Homepage!</h1>
+        <p>Your personal dashboard for all your information and resources.</p>
+ <form action="search_results.html" method="get" id="search-form">
+            <input type="text" name="query" placeholder="Search..." aria-label="Search">
+            <button type="submit">Search</button>
+        </form>
+    </header>
+    
+    <nav>
+        <a href="login.html">Logout</a>
+    </nav>
+
+    <main>
+        <section id="account">
+            <h2>Your Account</h2>
+            <p>Manage your personal information, update your profile, and view your activity.</p>
+            <button onclick="alert('Go to Account Settings')">Go to Account Settings</button>
+        </section>
+
+        <section id="college">
+            <h2>College</h2>
+            <p>Explore various colleges, their courses, and admission requirements.</p>
+            <button onclick="alert('Explore Colleges')">Explore Colleges</button>
+        </section>
+
+        <section id="resume">
+            <h2>Resume</h2>
+            <p>Create, update, and manage your resume to keep it current and professional.</p>
+            <button onclick="alert('Edit Resume')">Edit Resume</button>
+        </section>
+
+        <section id="college-shortlisted">
+            <h2>College Shortlisted</h2>
+            <p>View the colleges you have shortlisted and keep track of application deadlines and statuses.</p>
+            <button onclick="alert('View Shortlisted Colleges')">View Shortlisted Colleges</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Website. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

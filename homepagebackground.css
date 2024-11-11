@@ -1,0 +1,94 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scroll from animation */
+}
+
+/* Space background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('college background.png') no-repeat center center/cover;
+    z-index: -2;
+}
+
+/* Floating cats */
+.cat {
+    position: absolute;
+    width: 100px;
+    animation: float 8s infinite ease-in-out;
+    z-index: -1;
+}
+
+.cat:nth-child(1) { top: 10%; left: 15%; animation-delay: 1s; }
+.cat:nth-child(2) { top: 30%; left: 40%; animation-delay: 3s; }
+.cat:nth-child(3) { top: 60%; left: 70%; animation-delay: 5s; }
+.cat:nth-child(4) { top: 80%; left: 20%; animation-delay: 7s; }
+
+/* Float animation for cats */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Main sections */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+section {
+    width: 80%;
+    max-width: 500px;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #fff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff1493;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #ddd;
+}
